@@ -1,0 +1,79 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-Debug-99aaeb91d4fd322fa9df.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.16"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "reloj-despertador",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "reloj-despertador::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-reloj-despertador-Debug-0ab82233938a8f0fb5ef.json",
+					"name" : "reloj-despertador",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "reloj-despertador_autogen::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-reloj-despertador_autogen-Debug-89e29707327869bb10bc.json",
+					"name" : "reloj-despertador_autogen",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "reloj-despertador_autogen_timestamp_deps::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-reloj-despertador_autogen_timestamp_deps-Debug-0466277b1c42adedcd2d.json",
+					"name" : "reloj-despertador_autogen_timestamp_deps",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "C:/Users/Gabriel/Documents/UNSA 2024-B/TO/reloj-despertador/reloj-despertador/build/Desktop_Qt_6_7_2_MinGW_64_bit-Debug",
+		"source" : "C:/Users/Gabriel/Documents/UNSA 2024-B/TO/reloj-despertador/reloj-despertador"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 7
+	}
+}

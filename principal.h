@@ -17,6 +17,11 @@ public:
     Principal(QWidget *parent = nullptr);
     ~Principal();
 
+private slots:
+    void on_alarma_button_clicked();
+    void on_temp_button_clicked();
+    void on_crono_button_clicked();
+
 private:
     Ui::Principal *ui;
 };

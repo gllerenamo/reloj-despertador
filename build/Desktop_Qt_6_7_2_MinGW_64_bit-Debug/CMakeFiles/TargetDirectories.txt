@@ -1,0 +1,9 @@
+C:/Users/Gabriel/Documents/UNSA 2024-B/TO/reloj-despertador/reloj-despertador/build/Desktop_Qt_6_7_2_MinGW_64_bit-Debug/CMakeFiles/reloj-despertador.dir
+C:/Users/Gabriel/Documents/UNSA 2024-B/TO/reloj-despertador/reloj-despertador/build/Desktop_Qt_6_7_2_MinGW_64_bit-Debug/CMakeFiles/edit_cache.dir
+C:/Users/Gabriel/Documents/UNSA 2024-B/TO/reloj-despertador/reloj-despertador/build/Desktop_Qt_6_7_2_MinGW_64_bit-Debug/CMakeFiles/rebuild_cache.dir
+C:/Users/Gabriel/Documents/UNSA 2024-B/TO/reloj-despertador/reloj-despertador/build/Desktop_Qt_6_7_2_MinGW_64_bit-Debug/CMakeFiles/list_install_components.dir
+C:/Users/Gabriel/Documents/UNSA 2024-B/TO/reloj-despertador/reloj-despertador/build/Desktop_Qt_6_7_2_MinGW_64_bit-Debug/CMakeFiles/install.dir
+C:/Users/Gabriel/Documents/UNSA 2024-B/TO/reloj-despertador/reloj-despertador/build/Desktop_Qt_6_7_2_MinGW_64_bit-Debug/CMakeFiles/install/local.dir
+C:/Users/Gabriel/Documents/UNSA 2024-B/TO/reloj-despertador/reloj-despertador/build/Desktop_Qt_6_7_2_MinGW_64_bit-Debug/CMakeFiles/install/strip.dir
+C:/Users/Gabriel/Documents/UNSA 2024-B/TO/reloj-despertador/reloj-despertador/build/Desktop_Qt_6_7_2_MinGW_64_bit-Debug/CMakeFiles/reloj-despertador_autogen_timestamp_deps.dir
+C:/Users/Gabriel/Documents/UNSA 2024-B/TO/reloj-despertador/reloj-despertador/build/Desktop_Qt_6_7_2_MinGW_64_bit-Debug/CMakeFiles/reloj-despertador_autogen.dir

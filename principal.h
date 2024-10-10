@@ -2,6 +2,7 @@
 #define PRINCIPAL_H
 
 #include <QMainWindow>
+#include <QTime>
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -20,7 +21,6 @@ public:
 private slots:
     //Cambio de vista
     void on_alarma_button_clicked();
-    void on_temp_button_clicked();
     void on_crono_button_clicked();
 
     //alarma
@@ -30,14 +30,19 @@ private slots:
     void on_edit_button_clicked();
     void checkAlarms(const QTime &currentTime);
 
-    //reloj
-
     //cronometro
+    void startCrono();
+    void updateCrono();
+    void restartCrono();
+    void saveTime();
 
 private:
     Ui::Principal *ui;
+    QTimer *alarmaTimer;
     QTimer *cronometroTimer;
     QVector<bool> alarmSounded;
 
+    QTime lastTime;
+    int timeElapsed;
 };
 #endif // PRINCIPAL_H

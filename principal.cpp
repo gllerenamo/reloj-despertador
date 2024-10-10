@@ -24,18 +24,25 @@ Principal::Principal(QWidget *parent)
     //Vista principal
     connect(ui->alarma_button, &QPushButton::clicked, this, &Principal::on_alarma_button_clicked);
     connect(ui->cronometro_button, &QPushButton::clicked, this, &Principal::on_crono_button_clicked);
-    connect(ui->temporizador_button, &QPushButton::clicked, this, &Principal::on_temp_button_clicked);
 
     //Alarma
-    cronometroTimer = new QTimer(this);
-    connect(cronometroTimer, &QTimer::timeout, this, &Principal::updateTime);
-    cronometroTimer->start(1000); //actualiza cada segundo
+    alarmaTimer = new QTimer(this);
+    connect(alarmaTimer, &QTimer::timeout, this, &Principal::updateTime);
+    alarmaTimer->start(1000); //actualiza cada segundo
     alarmSounded.resize(0);
+
+    //Cronometro
+    cronometroTimer = new QTimer(this);
+    connect(cronometroTimer, &QTimer::timeout, this, &Principal::updateCrono);
 
     //conectar botones
     connect(ui->add_button, &QPushButton::clicked, this, &Principal::on_add_button_clicked);
     connect(ui->delete_button, &QPushButton::clicked, this, &Principal::on_delete_button_clicked);
     connect(ui->edit_button, &QPushButton::clicked, this, &Principal::on_edit_button_clicked);
+
+    connect(ui->start_button, &QPushButton::clicked, this, &Principal::startCrono);
+    connect(ui->marca_button, &QPushButton::clicked, this, &Principal::saveTime);
+    connect(ui->reiniciar_button, &QPushButton::clicked, this, &Principal::restartCrono);
 }
 
 Principal::~Principal()
@@ -51,8 +58,42 @@ void Principal::on_crono_button_clicked() {
     ui->stackedWidget->setCurrentWidget(ui->page_2);
 }
 
-void Principal::on_temp_button_clicked() {
-    ui->stackedWidget->setCurrentWidget(ui->page_3);
+void Principal::startCrono() {
+    if (!cronometroTimer->isActive()) {
+        timeElapsed = 0;
+        lastTime = QTime(0,0);
+        cronometroTimer->start(1000);
+    }
+}
+
+void Principal::updateCrono() {
+    timeElapsed++;
+    QTime time(0, 0);
+    time = time.addSecs(timeElapsed);
+
+    ui->hora_cronometro->setText(time.toString("hh:mm:ss"));
+}
+
+void Principal::restartCrono() {
+    cronometroTimer->stop();
+    QTime time(0, 0);
+    ui->hora_cronometro->setText(time.toString("hh:mm:ss"));
+}
+
+void Principal::saveTime() {
+    QTime current(0, 0);
+    current = current.addSecs(timeElapsed);
+    int diffSeconds = lastTime.secsTo(current);
+
+    QTime diffTime(0, 0);
+    diffTime = diffTime.addSecs(diffSeconds);
+    lastTime = current;
+
+    int rowCount = ui->crono_table->rowCount();
+    ui->crono_table->insertRow(rowCount);
+    ui->crono_table->setItem(rowCount, 0, new QTableWidgetItem(QString::number(rowCount)));
+    ui->crono_table->setItem(rowCount, 1, new QTableWidgetItem(diffTime.toString("hh:mm:ss")));
+    ui->crono_table->setItem(rowCount, 2, new QTableWidgetItem(current.toString("hh:mm:ss")));
 }
 
 void Principal::updateTime() {
@@ -68,7 +109,8 @@ void Principal::checkAlarms(const QTime &currentTime) {
         //asegurarse de que la alarma sea valida y mostrar mensaje de alarma solo si no ha sonado antes
         if (alarmTime.isValid() && currentTime >= alarmTime) {
             if (!alarmSounded[row]) {
-                QMessageBox::information(this, tr("Alarma"), tr("¡Alarma sonando! \n") + ui->alarmas_table->item(row, 1)->text());
+                QMessageBox::information(this,
+                    tr("Alarma"), tr("¡Alarma sonando! \n") + ui->alarmas_table->item(row, 1)->text());
                 alarmSounded[row] = true; //marcar como sonada
             }
         }

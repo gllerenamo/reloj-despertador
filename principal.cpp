@@ -16,6 +16,10 @@ Principal::Principal(QWidget *parent)
     , ui(new Ui::Principal)
 {
     ui->setupUi(this);
+    ui->alarmas_table->setColumnWidth(1, 300);
+    ui->crono_table->setColumnWidth(0, 137);
+    ui->crono_table->setColumnWidth(1, 137);
+    ui->crono_table->setColumnWidth(2, 137);
 
     //Vista principal
     connect(ui->alarma_button, &QPushButton::clicked, this, &Principal::on_alarma_button_clicked);
@@ -130,11 +134,10 @@ void Principal::on_delete_button_clicked() {
     if (confirmationBox.exec() == QMessageBox::Yes) {
         QItemSelectionModel *select = ui->alarmas_table->selectionModel();
         if (select->hasSelection()) {
-            //obtener la fila seleccionada
             int selectedRow = ui->alarmas_table->currentRow();
-            ui->prueba->setText(QString::number(selectedRow));
             ui->alarmas_table->removeRow(selectedRow);
             alarmSounded.remove(selectedRow);
+            QMessageBox::warning(this, tr("Eliminar Alarma"), tr("Alarma eliminada."));
         } else {
             QMessageBox::warning(this, tr("Eliminar Alarma"), tr("Selecciona una alarma para eliminar."));
         }
